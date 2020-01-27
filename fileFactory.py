@@ -7,6 +7,9 @@ COMMENT_FILE = COMMENT+"[file]"
 BLUEPRINT_COMMENT = "#"
 BLUEPRINT_SEP = "#"
 
+class BakingError(BaseException): pass
+class UnbakingError(BaseException): pass
+
 def errPrint(*a, **kw):
     print(*a, **kw, file=sys.stderr)
 
@@ -226,6 +229,9 @@ def unbake(fnInput, fnBlueprint):
     unbaked = passFile(fnInput, "rt", disassemble)
     passFile(fnBlueprint, "wt", createBlueprint, unbaked.blueprint)
     for cf in unbaked.files.values():
+        # when there are relative path, the unbaking process could lead to writing to
+        # other directories, this could be a security problem
+        if ".." in cf.filename: raise UnbakingError("Parent directory filenames disabled")
         with open(cf.filename, "wt") as f:
             f.write(cf.content)
             
