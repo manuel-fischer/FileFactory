@@ -1,0 +1,5 @@
+main.tscript#header
+settings.tscript#header
+settings.tscript#init
+settings.tscript#gui
+main.tscript#loop

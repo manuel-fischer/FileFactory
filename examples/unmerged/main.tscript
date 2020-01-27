@@ -1,0 +1,10 @@
+#[section] header
+
+function help()
+{
+	print("Simple TScript program to demonstrate file sections")
+}
+
+#[section] loop
+
+enterEventMode();

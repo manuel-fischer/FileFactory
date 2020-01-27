@@ -1,0 +1,22 @@
+#[file] main.tscript#header
+
+function help()
+{
+	print("Simple TScript program to demonstrate file sections")
+}
+
+#[file] settings.tscript#header
+
+var guiScale;
+
+#[file] settings.tscript#init
+
+function initSettings()
+{
+}
+
+#[file] settings.tscript#gui
+
+#[file] main.tscript#loop
+
+enterEventMode();

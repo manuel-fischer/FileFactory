@@ -1,0 +1,12 @@
+#[section] header
+
+var guiScale;
+
+#[section] init
+
+function initSettings()
+{
+}
+
+#[section] gui
+
